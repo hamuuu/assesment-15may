@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "2253b039-0a02-4bb3-a7a3-7e956dd06a7f",
+		"name": "assesment-15may",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "codebase-10",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"store_id\": 1,\n    \"item_menu\": [\n        {\n            \"menu_id\": 1,\n            \"qty\": 1,\n            \"menu_name\": \"Nasi Pecel\"\n        },\n        {\n            \"menu_id\": 2,\n            \"qty\": 1,\n            \"menu_name\": \"Nasi Tumpang\"\n        },\n        {\n            \"menu_id\": 3,\n            \"qty\": 1,\n            \"menu_name\": \"Nasi Campur\"\n        }\n    ],\n    \"customer_info\": {\n        \"name\": \"Mahmud\",\n        \"telp\": \"628132131123\"\n    },\n    \"delivery_location\": {\n        \"address\": \"Gunawarman street No.3, Selong, Kec. Kby.Baru, South Jakarta, Jakarta 12110\",\n        \"note\": \"titip di resepsionis maszeh\",\n        \"latitude\": -6.2315965,\n        \"longitude\": 106.8056592\n    },\n    \"order_summary\": {\n        \"price\": 129000,\n        \"price_original\": 170000,\n        \"delivery\": 0,\n        \"delivery_original\": 20000\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
