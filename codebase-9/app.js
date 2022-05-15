@@ -1,24 +1,38 @@
-const array1 = [
-    [1,2,3,4,5],
-    [1,2,3,4,5],
-    ['1','2','3','4','5'],
-]
+const fs = require('fs')
 
-const array2 = [
-    [1,2,3,4,5],
-    [1,2,3,7,6],
-    [1,2,3,4,5],
-]
+let file = fs.readFileSync('./array.json')
+let data = JSON.parse(file)
+let array = data.array
 
-for (let i = 0; i < array1.length; i++) {
-    result = true
-    for (let j = 0; j < array1[i].length; j++) {
-        // check if element from array1 is same as array2
-        // if not break loop and set result = false
-        if (array1[i][j] !== array2[i][j]) { 
-            result = false
-            break
+result = mergeSort(array)
+
+fs.writeFile('./result.json', JSON.stringify(result), (err) => {
+    if (err) {
+        console.log(err);
+    }
+});
+
+function mergeSort(array) {
+    const half = array.length / 2
+    
+    // Base case or terminating case
+    if(array.length < 2){
+        return array 
+    }
+    
+    const left = array.splice(0, half)
+    return merge(mergeSort(left),mergeSort(array))
+}
+
+function merge(left, right) {
+    let arr = []
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            arr.push(left.shift())  
+        } else {
+            arr.push(right.shift()) 
         }
     }
-    console.log(result);
+    
+    return [ ...arr, ...left, ...right ]
 }
